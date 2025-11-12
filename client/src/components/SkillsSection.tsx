@@ -2,11 +2,60 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
 const skills = {
-  "Programming Languages": ["Python", "JavaScript", "C++"],
-  "Web Development": ["React.js", "Node.js", "Express.js", "HTML", "CSS", "RESTful APIs"],
-  "Databases": ["MySQL", "SQLite"],
-  "Machine Learning & AI": ["Scikit-learn", "NumPy", "Pandas", "Matplotlib", "Seaborn", "OpenCV", "MediaPipe"],
-  "Core Competencies": ["Data Structures & Algorithms", "OOPS", "Responsive Web Design", "Git"],
+  "💻 Programming Languages": ["Python", "JavaScript", "SQL", "C"],
+  "🤖 Machine Learning & AI": [
+    "Machine Learning",
+    "Deep Learning",
+    "Generative AI (GenAI)",
+    "Random Forest",
+    "Scikit-learn",
+    "TensorFlow",
+    "Keras",
+    "OpenCV",
+    "MediaPipe",
+    "NumPy",
+    "Pandas"
+  ],
+  "🌐 Web Development": [
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "MERN Stack",
+    "Bootstrap",
+    "Flexbox"
+  ],
+  "📊 Data Science & Analytics": [
+    "NumPy",
+    "Pandas",
+    "Matplotlib",
+    "Seaborn",
+    "Statistics",
+    "Power BI",
+    "Excel",
+    "Data Cleaning & Preprocessing",
+    "Exploratory Data Analysis (EDA)"
+  ],
+  "🛠️ Tools & Technologies": [
+    "Git",
+    "GitHub",
+    "MySQL",
+    "DBMS",
+    "VS Code",
+    "Jupyter Notebook",
+    "Google Colab"
+  ],
+  "🧠 Computer Science Fundamentals": [
+    "Data Structures & Algorithms (DSA)",
+    "Object-Oriented Programming (OOP)",
+    "Operating Systems",
+    "Database Management Systems (DBMS)",
+    "Computer Networking",
+    "Software Development Life Cycle (SDLC)"
+  ]
 };
 
 export default function SkillsSection() {
@@ -66,10 +115,10 @@ export default function SkillsSection() {
         {/* Skills summary */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Programming Languages", value: "3" },
-            { label: "Frameworks & Libraries", value: "12+" },
-            { label: "Development Tools", value: "5+" },
-            { label: "Years Learning", value: "3+" },
+            { label: "Programming Languages", value: "4" },
+            { label: "ML/AI Technologies", value: "11" },
+            { label: "Web Technologies", value: "10" },
+            { label: "Certifications", value: "6" },
           ].map((stat, idx) => (
             <Card key={idx} className="text-center hover-elevate active-elevate-2 transition-all cursor-default">
               <CardContent className="p-6">
