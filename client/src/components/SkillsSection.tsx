@@ -1,99 +1,83 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  Code2,
-  Brain,
-  Database,
-  Wrench,
-  Globe,
-  GitBranch,
-} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
-interface SkillCategory {
-  title: string;
-  icon: React.ReactNode;
-  skills: string[];
-  color: string;
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Programming",
-    icon: <Code2 className="h-5 w-5" />,
-    skills: ["Python", "JavaScript", "C++", "SQL", "HTML/CSS"],
-    color: "text-blue-400",
-  },
-  {
-    title: "ML/AI",
-    icon: <Brain className="h-5 w-5" />,
-    skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV", "MediaPipe"],
-    color: "text-purple-400",
-  },
-  {
-    title: "Data Science",
-    icon: <Database className="h-5 w-5" />,
-    skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Data Analysis", "Statistics"],
-    color: "text-green-400",
-  },
-  {
-    title: "Tools & IDEs",
-    icon: <Wrench className="h-5 w-5" />,
-    skills: ["VS Code", "Jupyter", "Google Colab", "PyCharm", "Git"],
-    color: "text-orange-400",
-  },
-  {
-    title: "Web Development",
-    icon: <Globe className="h-5 w-5" />,
-    skills: ["React", "Node.js", "Express", "REST APIs", "Tailwind CSS"],
-    color: "text-cyan-400",
-  },
-  {
-    title: "Version Control",
-    icon: <GitBranch className="h-5 w-5" />,
-    skills: ["Git", "GitHub", "Version Control", "Collaboration"],
-    color: "text-pink-400",
-  },
-];
+const skills = {
+  "Languages": ["Python", "JavaScript", "C++", "SQL", "HTML", "CSS"],
+  "ML/AI Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV", "MediaPipe"],
+  "Data Science": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Data Analysis", "Statistics"],
+  "Web Development": ["React", "Node.js", "Express", "REST APIs", "Tailwind CSS", "Vite"],
+  "Tools & Platforms": ["Git", "GitHub", "VS Code", "Jupyter", "Google Colab", "PyCharm"],
+  "Core Concepts": ["Machine Learning", "Deep Learning", "Computer Vision", "Neural Networks", "Data Visualization", "Algorithm Design"],
+};
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-20 bg-muted/30">
+    <section id="skills" className="py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent -z-10" />
+      
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="space-y-4 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" data-testid="text-skills-heading">
-            Technical Skills
+        <div className="max-w-3xl mb-16 text-center mx-auto">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-sm font-medium text-primary">Expertise</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            Technical
+            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"> Arsenal</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl" data-testid="text-skills-description">
-            A comprehensive toolkit spanning machine learning, data science, and modern web development
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A comprehensive toolkit spanning the full spectrum of modern AI/ML and web development
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, idx) => (
-            <Card key={idx} className="hover-elevate transition-all duration-300" data-testid={`card-skill-${idx}`}>
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg bg-primary/10 ${category.color}`}>
-                    {category.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold" data-testid={`text-skill-category-${idx}`}>
-                    {category.title}
+          {Object.entries(skills).map(([category, items], idx) => (
+            <Card
+              key={category}
+              className="group hover-elevate transition-all duration-300 border-card-border"
+              style={{
+                animationDelay: `${idx * 50}ms`,
+              }}
+              data-testid={`card-skill-${idx}`}
+            >
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-8 bg-gradient-to-b from-primary to-purple-400 rounded-full" />
+                  <h3 className="text-lg font-bold" data-testid={`text-skill-category-${idx}`}>
+                    {category}
                   </h3>
                 </div>
-              </CardHeader>
-              <CardContent>
+                
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIdx) => (
+                  {items.map((skill, skillIdx) => (
                     <Badge
                       key={skillIdx}
                       variant="secondary"
-                      className="hover-elevate cursor-default"
+                      className="hover-elevate cursor-default transition-all duration-200 hover:scale-105"
                       data-testid={`badge-skill-${idx}-${skillIdx}`}
                     >
                       {skill}
                     </Badge>
                   ))}
                 </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Skills summary */}
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "Programming Languages", value: "6+" },
+            { label: "Frameworks & Libraries", value: "15+" },
+            { label: "Development Tools", value: "10+" },
+            { label: "Years Learning", value: "3+" },
+          ].map((stat, idx) => (
+            <Card key={idx} className="text-center hover-elevate active-elevate-2 transition-all cursor-default">
+              <CardContent className="p-6">
+                <div className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent mb-1">
+                  {stat.value}
+                </div>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
               </CardContent>
             </Card>
           ))}

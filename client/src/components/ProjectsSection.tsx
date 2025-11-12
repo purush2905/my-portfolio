@@ -1,8 +1,7 @@
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
 import { useState } from "react";
 import roadLaneImage from '@assets/road-lane_1762968870508.png';
 import sign2textImage from '@assets/sign2text_1762968870508.png';
@@ -15,157 +14,177 @@ interface Project {
   image: string;
   category: string;
   techStack: string[];
-  details: string;
   githubUrl?: string;
   liveUrl?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
     id: "1",
-    title: "Real-Time Lane Detection System",
-    description: "Advanced computer vision system for autonomous vehicle navigation using deep learning",
+    title: "Real-Time Lane Detection",
+    description: "Advanced computer vision system achieving 95% accuracy for autonomous vehicle navigation using deep learning and CNNs.",
     image: roadLaneImage,
     category: "ml",
-    techStack: ["Python", "OpenCV", "TensorFlow", "Deep Learning"],
-    details: "Developed a real-time lane detection system achieving 95% accuracy using convolutional neural networks. Implemented advanced image processing techniques for road line identification under various lighting conditions.",
+    techStack: ["Python", "OpenCV", "TensorFlow", "CNNs"],
     githubUrl: "https://github.com/purush2905/lane-detection",
+    featured: true,
   },
   {
     id: "2",
-    title: "Sign Language to Text Converter",
-    description: "MediaPipe-based hand gesture recognition system for real-time sign language translation",
+    title: "Sign Language Translator",
+    description: "AI-powered real-time sign language to text converter using MediaPipe hand tracking and gesture recognition.",
     image: sign2textImage,
     category: "ml",
-    techStack: ["Python", "MediaPipe", "Machine Learning", "Computer Vision"],
-    details: "Built an AI-powered application that recognizes hand gestures and converts sign language to text in real-time. Utilized MediaPipe's hand tracking for accurate gesture detection and classification.",
+    techStack: ["Python", "MediaPipe", "ML", "CV"],
     githubUrl: "https://github.com/purush2905/sign2text",
+    featured: true,
   },
   {
     id: "3",
-    title: "News Nexus - Aggregator Platform",
-    description: "Modern news aggregation platform with category filtering and personalized feeds",
+    title: "News Nexus Platform",
+    description: "Full-stack news aggregation platform with real-time updates, category filtering, and personalized feeds.",
     image: newsNexusImage,
     category: "web",
-    techStack: ["React", "Node.js", "REST API", "Tailwind CSS"],
-    details: "Created a full-stack news aggregation platform with real-time updates, category-based filtering, and responsive design. Integrated multiple news APIs for comprehensive coverage.",
+    techStack: ["React", "Node.js", "REST API", "Tailwind"],
     githubUrl: "https://github.com/purush2905/news-nexus",
     liveUrl: "https://news-nexus-demo.vercel.app",
   },
 ];
 
 export default function ProjectsSection() {
-  const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const toggleProject = (projectId: string) => {
-    const newExpanded = new Set(expandedProjects);
-    if (newExpanded.has(projectId)) {
-      newExpanded.delete(projectId);
-    } else {
-      newExpanded.add(projectId);
-    }
-    setExpandedProjects(newExpanded);
-  };
-
-  const filteredProjects = activeCategory === "all"
-    ? projects
-    : projects.filter(p => p.category === activeCategory);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="space-y-4 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" data-testid="text-projects-heading">
-            Featured Projects
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="absolute top-40 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-[128px]" />
+      
+      <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
+        <div className="max-w-3xl mb-16">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-sm font-medium text-primary">Portfolio</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            Featured
+            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"> Projects</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl" data-testid="text-projects-description">
-            A selection of my recent work in machine learning, computer vision, and web development
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A showcase of my work in machine learning, computer vision, and modern web development
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveCategory}>
-          <TabsList className="w-full sm:w-auto">
-            <TabsTrigger value="all" data-testid="tab-all">All Projects</TabsTrigger>
-            <TabsTrigger value="ml" data-testid="tab-ml">ML/AI</TabsTrigger>
-            <TabsTrigger value="web" data-testid="tab-web">Web Dev</TabsTrigger>
-          </TabsList>
-        </Tabs>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden hover-elevate transition-all duration-300" data-testid={`card-project-${project.id}`}>
-              <div className="aspect-video overflow-hidden bg-muted">
+        <div className="grid lg:grid-cols-3 gap-6">
+          {projects.map((project, idx) => (
+            <Card
+              key={project.id}
+              className="group relative overflow-hidden border-card-border hover-elevate transition-all duration-500"
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              style={{
+                animationDelay: `${idx * 100}ms`,
+              }}
+              data-testid={`card-project-${project.id}`}
+            >
+              {/* Image container with overlay */}
+              <div className="relative aspect-video overflow-hidden bg-muted">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   data-testid={`img-project-${project.id}`}
                 />
-              </div>
-              
-              <CardHeader>
-                <h3 className="text-xl font-semibold" data-testid={`text-project-title-${project.id}`}>
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground" data-testid={`text-project-description-${project.id}`}>
-                  {project.description}
-                </p>
-              </CardHeader>
-
-              <CardContent>
-                {expandedProjects.has(project.id) && (
-                  <p className="text-muted-foreground mb-4 animate-in slide-in-from-top duration-200" data-testid={`text-project-details-${project.id}`}>
-                    {project.details}
-                  </p>
-                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                 
+                {/* Quick action buttons on hover */}
+                <div className={`absolute top-4 right-4 flex gap-2 transition-all duration-300 ${
+                  hoveredId === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                }`}>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover-elevate"
+                      onClick={(e) => e.stopPropagation()}
+                      data-testid={`button-github-${project.id}`}
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover-elevate"
+                      onClick={(e) => e.stopPropagation()}
+                      data-testid={`button-live-${project.id}`}
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+
+                {/* Category badge */}
+                <div className="absolute top-4 left-4">
+                  <Badge variant="secondary" className="backdrop-blur-sm bg-background/90">
+                    {project.category === 'ml' ? 'ML/AI' : 'Web Dev'}
+                  </Badge>
+                </div>
+              </div>
+
+              <CardContent className="p-6 space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-testid={`text-project-title-${project.id}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-project-description-${project.id}`}>
+                    {project.description}
+                  </p>
+                </div>
+
                 <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech, idx) => (
-                    <Badge key={idx} variant="secondary" data-testid={`badge-tech-${project.id}-${idx}`}>
+                  {project.techStack.map((tech, techIdx) => (
+                    <Badge
+                      key={techIdx}
+                      variant="outline"
+                      className="text-xs"
+                      data-testid={`badge-tech-${project.id}-${techIdx}`}
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
-              </CardContent>
 
-              <CardFooter className="flex justify-between flex-wrap gap-2">
-                <div className="flex gap-2">
+                <div className="pt-2 flex gap-2">
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" asChild data-testid={`button-github-${project.id}`}>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="flex-1 gap-2"
+                      asChild
+                    >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
+                        <Github className="h-4 w-4" />
                         Code
                       </a>
                     </Button>
                   )}
                   {project.liveUrl && (
-                    <Button variant="outline" size="sm" asChild data-testid={`button-live-${project.id}`}>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="flex-1 gap-2"
+                      asChild
+                    >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
+                        <Eye className="h-4 w-4" />
+                        Demo
                       </a>
                     </Button>
                   )}
                 </div>
-                
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => toggleProject(project.id)}
-                  data-testid={`button-details-${project.id}`}
-                >
-                  {expandedProjects.has(project.id) ? (
-                    <>
-                      Show Less <ChevronUp className="h-4 w-4 ml-2" />
-                    </>
-                  ) : (
-                    <>
-                      View Details <ChevronDown className="h-4 w-4 ml-2" />
-                    </>
-                  )}
-                </Button>
-              </CardFooter>
+              </CardContent>
             </Card>
           ))}
         </div>

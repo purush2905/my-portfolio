@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -20,11 +20,10 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Integrate with a form service like Formspree, Web3Forms, or EmailJS for GitHub Pages
     setTimeout(() => {
       toast({
         title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
@@ -42,60 +41,139 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="space-y-4 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" data-testid="text-contact-heading">
-            Get In Touch
+    <section id="contact" className="py-24 relative overflow-hidden">
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px]" />
+      
+      <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
+        <div className="max-w-3xl mb-16 text-center mx-auto">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <span className="text-sm font-medium text-primary">Contact</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            Let's Create
+            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"> Together</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl" data-testid="text-contact-description">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Have an idea or opportunity? I'd love to hear from you
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <h3 className="text-xl font-semibold" data-testid="text-form-heading">Send a Message</h3>
-            </CardHeader>
-            <CardContent>
+        <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          {/* Contact info cards */}
+          <div className="lg:col-span-2 space-y-4">
+            <Card className="hover-elevate transition-all duration-300 border-card-border">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/10">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold mb-1" data-testid="text-email-label">Email</h4>
+                    <a
+                      href="mailto:purushothambollepalli01@gmail.com"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors break-all"
+                      data-testid="link-contact-email"
+                    >
+                      purushothambollepalli01@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-elevate transition-all duration-300 border-card-border">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-green-500/5 ring-1 ring-green-500/10">
+                    <Phone className="h-5 w-5 text-green-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1" data-testid="text-phone-label">Phone</h4>
+                    <p className="text-sm text-muted-foreground" data-testid="text-contact-phone">
+                      +91 84649 71133
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-elevate transition-all duration-300 border-card-border">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 ring-1 ring-purple-500/10">
+                    <MapPin className="h-5 w-5 text-purple-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1" data-testid="text-location-label">Location</h4>
+                    <p className="text-sm text-muted-foreground" data-testid="text-contact-location">
+                      Chittoor, Andhra Pradesh<br />India
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                  <h4 className="font-semibold">Quick Response</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  I typically respond within 24 hours. Looking forward to connecting!
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact form */}
+          <Card className="lg:col-span-3 border-card-border">
+            <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="text-sm font-medium">
+                    Your Name
+                  </Label>
                   <Input
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder="John Doe"
                     required
+                    className="h-12"
                     data-testid="input-name"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-sm font-medium">
+                    Email Address
+                  </Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your.email@example.com"
+                    placeholder="john@example.com"
                     required
+                    className="h-12"
                     data-testid="input-email"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="text-sm font-medium">
+                    Message
+                  </Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your message..."
-                    rows={5}
+                    placeholder="Tell me about your project or idea..."
+                    rows={6}
                     required
                     data-testid="input-message"
                   />
@@ -103,7 +181,8 @@ export default function ContactSection() {
 
                 <Button
                   type="submit"
-                  className="w-full gap-2"
+                  size="lg"
+                  className="w-full gap-2 h-12"
                   disabled={isSubmitting}
                   data-testid="button-submit"
                 >
@@ -119,60 +198,6 @@ export default function ContactSection() {
               </form>
             </CardContent>
           </Card>
-
-          <div className="space-y-6">
-            <Card className="hover-elevate transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1" data-testid="text-email-label">Email</h4>
-                    <a
-                      href="mailto:purushothambollepalli01@gmail.com"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      data-testid="link-contact-email"
-                    >
-                      purushothambollepalli01@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-elevate transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1" data-testid="text-phone-label">Phone</h4>
-                    <p className="text-muted-foreground" data-testid="text-contact-phone">
-                      +91 84649 71133
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-elevate transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1" data-testid="text-location-label">Location</h4>
-                    <p className="text-muted-foreground" data-testid="text-contact-location">
-                      Chittoor, Andhra Pradesh, India
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
     </section>
