@@ -118,12 +118,12 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Floating profile card */}
+        {/* Floating profile card - Desktop */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block animate-in fade-in slide-in-from-right duration-700 delay-300">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500" />
-            <div className="relative bg-card border border-card-border rounded-2xl p-6 w-64">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-2xl overflow-hidden ring-2 ring-primary/20">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-500" />
+            <div className="relative bg-card border border-card-border rounded-xl p-3">
+              <div className="w-24 h-24 rounded-lg overflow-hidden ring-2 ring-primary/20 mb-2">
                 <img
                   src={profileImage}
                   alt="Purushotham Bollepalli"
@@ -131,11 +131,11 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                   data-testid="img-profile"
                 />
               </div>
-              <div className="text-center space-y-1">
-                <p className="font-semibold">Purushotham Bollepalli</p>
-                <p className="text-sm text-muted-foreground">He/Him</p>
-                <div className="pt-3 flex items-center justify-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <div className="text-center space-y-0.5">
+                <p className="font-semibold text-sm">Purushotham</p>
+                <p className="text-xs text-muted-foreground">AI/ML Engineer</p>
+                <div className="pt-2 flex items-center justify-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs text-muted-foreground">Available</span>
                 </div>
               </div>
@@ -146,20 +146,20 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Mobile profile */}
         <div className="xl:hidden mt-12 flex justify-center animate-in fade-in zoom-in duration-700 delay-600">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-500 rounded-2xl blur opacity-25" />
-            <div className="relative bg-card border border-card-border rounded-2xl p-4 inline-flex items-center gap-4">
-              <div className="w-20 h-20 rounded-xl overflow-hidden ring-2 ring-primary/20">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-xl blur opacity-25" />
+            <div className="relative bg-card border border-card-border rounded-xl p-3 inline-flex items-center gap-3">
+              <div className="w-16 h-16 rounded-lg overflow-hidden ring-2 ring-primary/20">
                 <img
                   src={profileImage}
                   alt="Purushotham Bollepalli"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="space-y-1">
-                <p className="font-semibold">Purushotham Bollepalli</p>
-                <p className="text-sm text-muted-foreground">He/Him</p>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <div className="space-y-0.5">
+                <p className="font-semibold text-sm">Purushotham</p>
+                <p className="text-xs text-muted-foreground">AI/ML Engineer</p>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs text-muted-foreground">Available</span>
                 </div>
               </div>

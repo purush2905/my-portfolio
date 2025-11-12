@@ -2,12 +2,11 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
 const skills = {
-  "Languages": ["Python", "JavaScript", "C++", "SQL", "HTML", "CSS"],
-  "ML/AI Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV", "MediaPipe"],
-  "Data Science": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Data Analysis", "Statistics"],
-  "Web Development": ["React", "Node.js", "Express", "REST APIs", "Tailwind CSS", "Vite"],
-  "Tools & Platforms": ["Git", "GitHub", "VS Code", "Jupyter", "Google Colab", "PyCharm"],
-  "Core Concepts": ["Machine Learning", "Deep Learning", "Computer Vision", "Neural Networks", "Data Visualization", "Algorithm Design"],
+  "Programming Languages": ["Python", "JavaScript", "C++"],
+  "Web Development": ["React.js", "Node.js", "Express.js", "HTML", "CSS", "RESTful APIs"],
+  "Databases": ["MySQL", "SQLite"],
+  "Machine Learning & AI": ["Scikit-learn", "NumPy", "Pandas", "Matplotlib", "Seaborn", "OpenCV", "MediaPipe"],
+  "Core Competencies": ["Data Structures & Algorithms", "OOPS", "Responsive Web Design", "Git"],
 };
 
 export default function SkillsSection() {
@@ -67,9 +66,9 @@ export default function SkillsSection() {
         {/* Skills summary */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Programming Languages", value: "6+" },
-            { label: "Frameworks & Libraries", value: "15+" },
-            { label: "Development Tools", value: "10+" },
+            { label: "Programming Languages", value: "3" },
+            { label: "Frameworks & Libraries", value: "12+" },
+            { label: "Development Tools", value: "5+" },
             { label: "Years Learning", value: "3+" },
           ].map((stat, idx) => (
             <Card key={idx} className="text-center hover-elevate active-elevate-2 transition-all cursor-default">

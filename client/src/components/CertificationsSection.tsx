@@ -12,32 +12,25 @@ interface Certification {
 
 const certifications: Certification[] = [
   {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera",
-    date: "2024",
-    skills: ["ML Algorithms", "Neural Networks", "Deep Learning"],
-    url: "https://coursera.org",
+    title: "Deloitte Australia Data Analytics Job Simulation",
+    issuer: "Forage",
+    date: "Apr 2025",
+    skills: ["Data Analytics", "Business Intelligence"],
+    url: "https://forage.com",
   },
   {
-    title: "Python for Data Science",
-    issuer: "IBM",
-    date: "2023",
-    skills: ["Python", "Pandas", "Data Analysis"],
-    url: "https://ibm.com",
+    title: "Backend Web Development with Node.js and Express",
+    issuer: "NxtWave",
+    date: "Apr 2025",
+    skills: ["Node.js", "Express.js", "Backend Development"],
+    url: "https://nxtwave.tech",
   },
   {
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    date: "2024",
-    skills: ["TensorFlow", "Keras", "Computer Vision"],
-    url: "https://tensorflow.org",
-  },
-  {
-    title: "Web Development Bootcamp",
-    issuer: "Udemy",
-    date: "2023",
-    skills: ["React", "Node.js", "Full Stack"],
-    url: "https://udemy.com",
+    title: "Introduction to MySQL and Database Management Systems",
+    issuer: "NxtWave",
+    date: "July 2024",
+    skills: ["MySQL", "Database Management"],
+    url: "https://nxtwave.tech",
   },
 ];
 
@@ -60,7 +53,7 @@ export default function CertificationsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, idx) => (
             <Card
               key={idx}
