@@ -51,7 +51,7 @@ const skills = {
   "🧠 Computer Science Fundamentals": [
     "Data Structures & Algorithms (DSA)",
     "Object-Oriented Programming (OOP)",
-    "Operating Systems",
+    "Operating Systems (OS)",
     "Database Management Systems (DBMS)",
     "Computer Networking",
     "Software Development Life Cycle (SDLC)"
@@ -60,7 +60,7 @@ const skills = {
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/20 to-transparent -z-10" />
       <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-[140px]" />

@@ -56,7 +56,7 @@ export default function ProjectsSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-16 relative overflow-hidden">
       <div className="absolute top-40 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px]" />
       <div className="absolute bottom-40 right-10 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
       

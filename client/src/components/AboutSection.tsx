@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Calendar, MapPin, Award, TrendingUp, Code, BookOpen, Target } from "lucide-react";
+import { GraduationCap, Calendar, Award, TrendingUp, Code, BookOpen, Target } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function AboutSection() {
@@ -11,7 +11,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-transparent to-transparent -z-10" />
       <div className="absolute top-40 right-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
       
@@ -57,12 +57,6 @@ export default function AboutSection() {
                   </p>
                   
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground p-2 rounded-lg hover:bg-primary/5 transition-colors">
-                      <div className="p-1.5 rounded-lg bg-primary/10">
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                      <span data-testid="text-location">Bangalore, Karnataka</span>
-                    </div>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground p-2 rounded-lg hover:bg-primary/5 transition-colors">
                       <div className="p-1.5 rounded-lg bg-primary/10">
                         <Calendar className="h-4 w-4 text-primary" />

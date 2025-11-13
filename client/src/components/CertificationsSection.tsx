@@ -11,6 +11,18 @@ interface Certification {
 
 const certifications: Certification[] = [
   {
+    title: "Kaggle Machine Learning",
+    issuer: "Kaggle",
+    date: "2024",
+    description: "Comprehensive machine learning certification covering data science fundamentals and ML algorithms.",
+  },
+  {
+    title: "Python",
+    issuer: "NxtWave",
+    date: "2024",
+    description: "Advanced Python programming and data manipulation techniques.",
+  },
+  {
     title: "Node.js",
     issuer: "NxtWave",
     date: "Jun 2025",
@@ -35,12 +47,6 @@ const certifications: Certification[] = [
     description: "Core JavaScript concepts and modern ES6+ features.",
   },
   {
-    title: "Responsive Web Design using Flexbox",
-    issuer: "NxtWave",
-    date: "Mar 2025",
-    description: "Bootstrap framework and modern CSS layouts.",
-  },
-  {
     title: "Introduction to Databases",
     issuer: "NxtWave",
     date: "Jul 2024",
@@ -50,7 +56,7 @@ const certifications: Certification[] = [
 
 export default function CertificationsSection() {
   return (
-    <section id="certifications" className="py-24 relative overflow-hidden">
+    <section id="certifications" className="py-16 relative overflow-hidden">
       <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[140px]" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500/5 rounded-full blur-[120px]" />
       
