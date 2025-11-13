@@ -211,6 +211,22 @@
     animation: gradient 8s ease infinite;
   }
 
+  /* Blob animation for organic shapes */
+  @keyframes blob {
+    0%, 100% {
+      border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    }
+    25% {
+      border-radius: 37% 63% 46% 54% / 48% 52% 45% 55%;
+    }
+    50% {
+      border-radius: 54% 46% 63% 37% / 52% 45% 55% 48%;
+    }
+    75% {
+      border-radius: 46% 54% 37% 63% / 45% 55% 48% 52%;
+    }
+  }
+
   /* Hide ugly search cancel button in Chrome until we can style it properly */
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;

@@ -156,59 +156,78 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Enhanced Floating profile card - Desktop */}
+        {/* New Profile Card with Organic Blue Background - Desktop */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block animate-in fade-in slide-in-from-right duration-700 delay-300">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500 animate-pulse" />
-            <div className="relative bg-card/90 backdrop-blur-xl border border-card-border/50 rounded-2xl p-6 shadow-2xl group-hover:scale-105 transition-transform duration-300">
-              <div className="relative mb-4">
-                <div className="w-32 h-32 rounded-2xl overflow-hidden ring-4 ring-primary/20 group-hover:ring-primary/40 transition-all">
+            {/* Organic blue background shape */}
+            <div className="relative w-[320px] h-[400px] flex items-center justify-center">
+              {/* Vibrant blue organic blob background with animated shape */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 opacity-90 group-hover:opacity-100 transition-all duration-500 shadow-2xl"
+                style={{
+                  borderRadius: '63% 37% 54% 46% / 55% 48% 52% 45%',
+                  animation: 'blob 20s ease-in-out infinite'
+                }}
+              >
+                <div 
+                  className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-cyan-500/90"
+                  style={{
+                    borderRadius: '63% 37% 54% 46% / 55% 48% 52% 45%'
+                  }}
+                />
+              </div>
+              
+              {/* Profile image centered */}
+              <div className="relative z-10 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <div className="relative w-56 h-56 rounded-full overflow-hidden ring-4 ring-white/30 shadow-2xl">
                   <img
                     src={profileImage}
                     alt="Purushotham Bollepalli"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                     data-testid="img-profile"
                   />
                 </div>
-                <div className="absolute -bottom-2 -right-2 p-2 rounded-full bg-green-500 shadow-lg border-4 border-card">
+                {/* Status indicator */}
+                <div className="absolute bottom-3 right-3 p-2 rounded-full bg-green-500 shadow-xl border-4 border-white">
                   <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                </div>
-              </div>
-              <div className="text-center space-y-1">
-                <p className="font-bold text-base">Purushotham</p>
-                <p className="text-xs text-muted-foreground">AI/ML Engineer</p>
-                <div className="pt-2 flex items-center justify-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-                  <span className="text-xs font-medium text-green-500">Available</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Enhanced Mobile profile */}
+        {/* New Profile Card with Organic Blue Background - Mobile */}
         <div className="xl:hidden mt-16 flex justify-center animate-in fade-in zoom-in duration-700 delay-600">
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-500 rounded-2xl blur-lg opacity-30" />
-            <div className="relative bg-card/90 backdrop-blur-xl border border-card-border/50 rounded-2xl p-4 inline-flex items-center gap-4 shadow-2xl">
-              <div className="relative">
-                <div className="w-20 h-20 rounded-xl overflow-hidden ring-4 ring-primary/20">
+            {/* Organic blue background shape */}
+            <div className="relative w-[256px] h-[320px] flex items-center justify-center">
+              {/* Vibrant blue organic blob background */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 opacity-90 shadow-2xl"
+                style={{
+                  borderRadius: '63% 37% 54% 46% / 55% 48% 52% 45%'
+                }}
+              >
+                <div 
+                  className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-cyan-500/90"
+                  style={{
+                    borderRadius: '63% 37% 54% 46% / 55% 48% 52% 45%'
+                  }}
+                />
+              </div>
+              
+              {/* Profile image centered */}
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-white/30 shadow-2xl">
                   <img
                     src={profileImage}
                     alt="Purushotham Bollepalli"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-1 -right-1 p-1.5 rounded-full bg-green-500 border-2 border-card">
+                {/* Status indicator */}
+                <div className="absolute bottom-2 right-2 p-1.5 rounded-full bg-green-500 shadow-xl border-3 border-white">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                </div>
-              </div>
-              <div className="space-y-1">
-                <p className="font-bold text-base">Purushotham</p>
-                <p className="text-xs text-muted-foreground">AI/ML Engineer</p>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-medium text-green-500">Available</span>
                 </div>
               </div>
             </div>

@@ -35,18 +35,26 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     <nav
       className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${
         scrolled 
-          ? 'bg-background/95 backdrop-blur-xl shadow-xl border-border/50' 
-          : 'bg-background/60 backdrop-blur-md border-border/30'
+          ? 'bg-background/98 backdrop-blur-xl shadow-xl border-border/50' 
+          : 'bg-background/85 backdrop-blur-lg border-border/40'
       }`}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex h-20 items-center justify-between">
           <button
             onClick={() => onNavigate('hero')}
-            className="text-xl font-extrabold bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent hover:scale-105 active:scale-95 px-3 py-2 rounded-lg transition-all duration-300 tracking-tight relative group"
+            className="text-xl font-extrabold hover:scale-105 active:scale-95 px-3 py-2 rounded-lg transition-all duration-300 tracking-tight relative group"
             data-testid="button-home"
           >
-            <span className="relative z-10">PURUSHOTHAM BOLLEPALLI</span>
+            <span 
+              className="relative z-10 bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent"
+              style={{
+                textShadow: '0 2px 8px rgba(59, 130, 246, 0.4), 0 0 16px rgba(147, 51, 234, 0.3)',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'
+              }}
+            >
+              PURUSHOTHAM BOLLEPALLI
+            </span>
             <span className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
           </button>
 
