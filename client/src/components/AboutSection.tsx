@@ -15,6 +15,11 @@ export default function AboutSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-transparent to-transparent -z-10" />
       <div className="absolute top-40 right-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
       
+      {/* Floating background particles */}
+      <div className="absolute top-20 left-20 w-2 h-2 rounded-full bg-primary/30 animate-float-bg blur-sm" style={{ animationDelay: '0s' }} />
+      <div className="absolute bottom-32 right-32 w-2.5 h-2.5 rounded-full bg-purple-500/30 animate-float-bg blur-sm" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute top-1/2 right-10 w-1.5 h-1.5 rounded-full bg-blue-500/30 animate-float-bg blur-sm" style={{ animationDelay: '2s' }} />
+      
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
@@ -33,7 +38,7 @@ export default function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Enhanced Education Card */}
-          <Card className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-lg hover:shadow-2xl">
+          <Card className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-lg hover:shadow-2xl hover:scale-[1.02]">
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-[120px] -z-10" />
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-tr-[100px] -z-10" />
             <CardContent className="p-8 relative">

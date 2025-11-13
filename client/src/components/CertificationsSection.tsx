@@ -60,6 +60,11 @@ export default function CertificationsSection() {
       <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[140px]" />
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500/5 rounded-full blur-[120px]" />
       
+      {/* Floating background particles */}
+      <div className="absolute top-24 left-24 w-2 h-2 rounded-full bg-primary/30 animate-float-bg blur-sm" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute bottom-24 right-24 w-2.5 h-2.5 rounded-full bg-purple-500/30 animate-float-bg blur-sm" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-blue-500/30 animate-float-bg blur-sm" style={{ animationDelay: '2s' }} />
+      
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
@@ -78,7 +83,7 @@ export default function CertificationsSection() {
           {certifications.map((cert, idx) => (
             <Card
               key={idx}
-              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-md hover:shadow-xl hover:scale-[1.02]"
+              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-md hover:shadow-xl hover:scale-[1.03] animate-in fade-in slide-in-from-bottom"
               style={{
                 animationDelay: `${idx * 100}ms`,
               }}

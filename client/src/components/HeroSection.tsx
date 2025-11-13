@@ -46,6 +46,15 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+        
+        {/* Small moving background objects */}
+        <div className="absolute top-32 left-32 w-3 h-3 rounded-full bg-primary/40 animate-float-bg blur-sm" style={{ animationDelay: '0s' }} />
+        <div className="absolute top-64 right-48 w-2 h-2 rounded-full bg-blue-500/40 animate-float-bg blur-sm" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-48 left-64 w-2.5 h-2.5 rounded-full bg-purple-500/40 animate-float-bg blur-sm" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-96 right-96 w-2 h-2 rounded-full bg-pink-500/40 animate-float-bg blur-sm" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute bottom-32 right-32 w-3 h-3 rounded-full bg-cyan-500/40 animate-float-bg blur-sm" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-1/3 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/30 animate-float-bg blur-sm" style={{ animationDelay: '2.5s' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-purple-500/30 animate-float-bg blur-sm" style={{ animationDelay: '3s' }} />
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative z-10">
@@ -156,29 +165,45 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* New Animated Floating Profile Card - Desktop */}
+        {/* Enhanced Animated Floating Profile Card - Desktop */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block animate-in fade-in slide-in-from-right duration-700 delay-300">
           <div className="relative group">
             {/* Floating animated container */}
-            <div className="relative w-72 h-72 animate-float">
-              {/* Rotating gradient rings */}
+            <div className="relative w-80 h-80 animate-float">
+              {/* Outer rotating gradient rings - Layer 1 */}
               <div className="absolute inset-0 animate-spin-slow">
-                <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-r from-primary via-blue-500 to-purple-500 opacity-20" 
+                <div className="absolute inset-0 rounded-full border-[6px] border-transparent bg-gradient-to-r from-primary via-blue-500 to-purple-500 opacity-25" 
                      style={{ clipPath: 'polygon(50% 0%, 100% 0%, 100% 50%, 50% 50%)' }} />
-                <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-primary opacity-20 rotate-180" 
+                <div className="absolute inset-0 rounded-full border-[6px] border-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-primary opacity-25 rotate-180" 
                      style={{ clipPath: 'polygon(0% 50%, 50% 50%, 50% 100%, 0% 100%)' }} />
               </div>
               
-              {/* Pulsing background circles */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 animate-pulse-slow blur-xl" />
-                <div className="absolute w-56 h-56 rounded-full bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 animate-pulse-slow blur-lg" style={{ animationDelay: '1s' }} />
+              {/* Middle rotating ring - Layer 2 */}
+              <div className="absolute inset-4 animate-spin-reverse">
+                <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-br from-blue-400 via-cyan-400 to-purple-400 opacity-30" />
               </div>
               
-              {/* Profile image with floating animation */}
+              {/* Inner rotating dots - Layer 3 */}
+              <div className="absolute inset-8 animate-spin-slow">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary/60 blur-sm" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-purple-500/60 blur-sm" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-500/60 blur-sm" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-pink-500/60 blur-sm" />
+              </div>
+              
+              {/* Pulsing background circles - Multiple layers */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute w-72 h-72 rounded-full bg-gradient-to-br from-primary/15 via-blue-500/15 to-purple-500/15 animate-pulse-slow blur-2xl" />
+                <div className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/25 via-purple-500/25 to-pink-500/25 animate-pulse-slow blur-xl" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute w-56 h-56 rounded-full bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-primary/30 animate-pulse-slow blur-lg" style={{ animationDelay: '1s' }} />
+              </div>
+              
+              {/* Profile image with floating animation - Center */}
               <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <div className="relative w-48 h-48 rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl animate-float-slow group-hover:ring-primary/50 transition-all duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 animate-pulse-slow" />
+                {/* Glowing ring around image */}
+                <div className="absolute w-52 h-52 rounded-full bg-gradient-to-r from-primary/40 via-blue-500/40 to-purple-500/40 blur-md animate-pulse-slow" />
+                <div className="relative w-48 h-48 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-2xl animate-float-slow group-hover:ring-primary/60 group-hover:scale-110 transition-all duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/30 animate-pulse-slow" />
                   <img
                     src={profileImage}
                     alt="Purushotham Bollepalli"
@@ -186,43 +211,37 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                     data-testid="img-profile"
                   />
                 </div>
-                
-                {/* Orbiting status indicator */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-6 h-6 rounded-full bg-green-500 shadow-xl border-2 border-white animate-orbit">
-                    <div className="w-full h-full rounded-full bg-green-400 animate-pulse" />
-                  </div>
-                </div>
-                
-                {/* Floating particles */}
-                <div className="absolute top-8 left-8 w-2 h-2 rounded-full bg-primary/60 animate-float-particles" style={{ animationDelay: '0s' }} />
-                <div className="absolute bottom-12 right-12 w-2 h-2 rounded-full bg-purple-500/60 animate-float-particles" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-4 w-1.5 h-1.5 rounded-full bg-blue-500/60 animate-float-particles" style={{ animationDelay: '2s' }} />
               </div>
+              
+              {/* Floating particles around the card */}
+              <div className="absolute top-4 left-4 w-2.5 h-2.5 rounded-full bg-primary/70 animate-float-particles shadow-lg shadow-primary/50" style={{ animationDelay: '0s' }} />
+              <div className="absolute bottom-8 right-8 w-2 h-2 rounded-full bg-purple-500/70 animate-float-particles shadow-lg shadow-purple-500/50" style={{ animationDelay: '1s' }} />
+              <div className="absolute top-1/2 left-2 w-2 h-2 rounded-full bg-blue-500/70 animate-float-particles shadow-lg shadow-blue-500/50" style={{ animationDelay: '2s' }} />
+              <div className="absolute top-1/4 right-2 w-1.5 h-1.5 rounded-full bg-pink-500/70 animate-float-particles shadow-lg shadow-pink-500/50" style={{ animationDelay: '1.5s' }} />
+              <div className="absolute bottom-1/4 left-8 w-2 h-2 rounded-full bg-cyan-500/70 animate-float-particles shadow-lg shadow-cyan-500/50" style={{ animationDelay: '0.5s' }} />
             </div>
           </div>
         </div>
 
-        {/* New Animated Floating Profile Card - Mobile */}
+        {/* Enhanced Animated Floating Profile Card - Mobile */}
         <div className="xl:hidden mt-12 flex justify-center animate-in fade-in zoom-in duration-700 delay-600">
           <div className="relative group">
-            <div className="relative w-56 h-56 animate-float">
-              {/* Pulsing background */}
+            <div className="relative w-64 h-64 animate-float">
+              {/* Pulsing background layers */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="absolute w-48 h-48 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 animate-pulse-slow blur-xl" />
+                <div className="absolute w-56 h-56 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 animate-pulse-slow blur-xl" />
+                <div className="absolute w-48 h-48 rounded-full bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 animate-pulse-slow blur-lg" style={{ animationDelay: '0.5s' }} />
               </div>
               
               {/* Profile image */}
               <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
+                <div className="absolute w-44 h-44 rounded-full bg-gradient-to-r from-primary/40 via-blue-500/40 to-purple-500/40 blur-md animate-pulse-slow" />
+                <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-2xl">
                   <img
                     src={profileImage}
                     alt="Purushotham Bollepalli"
                     className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-green-500 shadow-xl border-2 border-white">
-                  <div className="w-full h-full rounded-full bg-green-400 animate-pulse" />
                 </div>
               </div>
             </div>

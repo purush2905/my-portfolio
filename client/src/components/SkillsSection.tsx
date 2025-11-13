@@ -12,7 +12,6 @@ const skills = {
     "TensorFlow",
     "Keras",
     "OpenCV",
-    "MediaPipe",
     "NumPy",
     "Pandas"
   ],
@@ -49,12 +48,12 @@ const skills = {
     "Google Colab"
   ],
   "🧠 Computer Science Fundamentals": [
-    "Data Structures & Algorithms (DSA)",
-    "Object-Oriented Programming (OOP)",
-    "Operating Systems (OS)",
-    "Database Management Systems (DBMS)",
+    "DSA",
+    "OOP",
+    "Operating Systems",
+    "DBMS",
     "Computer Networking",
-    "Software Development Life Cycle (SDLC)"
+    "SDLC"
   ]
 };
 
@@ -64,6 +63,11 @@ export default function SkillsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/20 to-transparent -z-10" />
       <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-[140px]" />
+      
+      {/* Floating background particles */}
+      <div className="absolute top-32 right-32 w-2 h-2 rounded-full bg-blue-500/30 animate-float-bg blur-sm" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-32 left-32 w-2.5 h-2.5 rounded-full bg-purple-500/30 animate-float-bg blur-sm" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/30 animate-float-bg blur-sm" style={{ animationDelay: '0.5s' }} />
       
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16 text-center mx-auto">
@@ -83,7 +87,7 @@ export default function SkillsSection() {
           {Object.entries(skills).map(([category, items], idx) => (
             <Card
               key={category}
-              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02]"
+              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-md hover:shadow-xl hover:scale-[1.03] animate-in fade-in slide-in-from-bottom"
               style={{
                 animationDelay: `${idx * 50}ms`,
               }}

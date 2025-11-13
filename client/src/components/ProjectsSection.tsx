@@ -60,6 +60,11 @@ export default function ProjectsSection() {
       <div className="absolute top-40 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px]" />
       <div className="absolute bottom-40 right-10 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
       
+      {/* Floating background particles */}
+      <div className="absolute top-24 right-24 w-2 h-2 rounded-full bg-purple-500/30 animate-float-bg blur-sm" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute bottom-24 left-24 w-2.5 h-2.5 rounded-full bg-primary/30 animate-float-bg blur-sm" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/3 left-1/3 w-1.5 h-1.5 rounded-full bg-pink-500/30 animate-float-bg blur-sm" style={{ animationDelay: '2.5s' }} />
+      
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
