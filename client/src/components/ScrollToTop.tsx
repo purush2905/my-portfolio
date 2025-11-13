@@ -31,7 +31,7 @@ export default function ScrollToTop() {
         <Button
           onClick={scrollToTop}
           size="icon"
-          className="fixed bottom-8 right-8 z-50 shadow-lg hover-elevate"
+          className="fixed bottom-8 right-8 z-50 shadow-xl hover:shadow-2xl hover-elevate bg-gradient-to-br from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 border-0 transition-all duration-300 hover:scale-110 rounded-full w-12 h-12"
           data-testid="button-scroll-to-top"
         >
           <ArrowUp className="h-5 w-5" />

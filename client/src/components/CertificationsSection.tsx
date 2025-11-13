@@ -50,19 +50,20 @@ const certifications: Certification[] = [
 
 export default function CertificationsSection() {
   return (
-    <section id="certifications" className="py-24 relative">
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-[128px]" />
+    <section id="certifications" className="py-24 relative overflow-hidden">
+      <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[140px]" />
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500/5 rounded-full blur-[120px]" />
       
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <span className="text-sm font-medium text-primary">Achievements</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
+            <span className="text-sm font-semibold text-primary">Achievements</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
             Certifications &
-            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"> Learning</span>
+            <span className="block bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent"> Learning</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
             Continuous learning and professional development through industry-recognized certifications
           </p>
         </div>
@@ -71,29 +72,32 @@ export default function CertificationsSection() {
           {certifications.map((cert, idx) => (
             <Card
               key={idx}
-              className="group relative overflow-hidden border-card-border hover-elevate transition-all duration-300"
+              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-md hover:shadow-xl hover:scale-[1.02]"
               style={{
                 animationDelay: `${idx * 100}ms`,
               }}
               data-testid={`card-cert-${idx}`}
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-[80px] -z-10" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/15 to-transparent rounded-bl-[100px] -z-10" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-tr-[80px] -z-10" />
               
-              <CardContent className="p-6">
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/10 group-hover:scale-110 transition-transform duration-300">
-                    <Award className="h-5 w-5 text-primary" />
+              <CardContent className="p-6 relative">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 ring-2 ring-primary/10 group-hover:scale-110 group-hover:ring-primary/30 transition-all duration-300">
+                    <Award className="h-6 w-6 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base mb-2 group-hover:text-primary transition-colors leading-tight" data-testid={`text-cert-title-${idx}`}>
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors leading-tight" data-testid={`text-cert-title-${idx}`}>
                       {cert.title}
                     </h3>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
-                      <span data-testid={`text-cert-issuer-${idx}`}>{cert.issuer}</span>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3 p-1.5 rounded-lg hover:bg-primary/5 transition-colors">
+                      <span data-testid={`text-cert-issuer-${idx}`} className="font-medium">{cert.issuer}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 mb-3">
-                      <Calendar className="h-3.5 w-3.5 text-primary" />
-                      <span className="text-xs text-muted-foreground">{cert.date}</span>
+                    <div className="flex items-center gap-2 mb-4 p-1.5 rounded-lg hover:bg-primary/5 transition-colors">
+                      <div className="p-1 rounded-lg bg-primary/10">
+                        <Calendar className="h-3.5 w-3.5 text-primary" />
+                      </div>
+                      <span className="text-xs font-semibold text-muted-foreground">{cert.date}</span>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-cert-description-${idx}`}>
                       {cert.description}

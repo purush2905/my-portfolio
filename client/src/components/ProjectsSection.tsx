@@ -57,27 +57,28 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
-      <div className="absolute top-40 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-[128px]" />
+      <div className="absolute top-40 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px]" />
+      <div className="absolute bottom-40 right-10 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative">
         <div className="max-w-3xl mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <span className="text-sm font-medium text-primary">Portfolio</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
+            <span className="text-sm font-semibold text-primary">Portfolio</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
             Featured
-            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"> Projects</span>
+            <span className="block bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent"> Projects</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
             A showcase of my work in machine learning, computer vision, and modern web development
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <Card
               key={project.id}
-              className="group relative overflow-hidden border-card-border hover-elevate transition-all duration-500"
+              className="group relative overflow-hidden border-card-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover-elevate transition-all duration-500 shadow-lg hover:shadow-2xl hover:scale-[1.02]"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
@@ -85,30 +86,33 @@ export default function ProjectsSection() {
               }}
               data-testid={`card-project-${project.id}`}
             >
-              {/* Image container with overlay */}
-              <div className="relative aspect-video overflow-hidden bg-muted">
+              {/* Enhanced gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-500 -z-10" />
+              
+              {/* Image container with enhanced overlay */}
+              <div className="relative aspect-video overflow-hidden bg-muted rounded-t-lg">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   data-testid={`img-project-${project.id}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
                 
-                {/* Quick action buttons on hover */}
+                {/* Enhanced quick action buttons */}
                 <div className={`absolute top-4 right-4 flex gap-2 transition-all duration-300 ${
-                  hoveredId === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                  hoveredId === project.id ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95'
                 }`}>
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover-elevate"
+                      className="p-2.5 rounded-xl bg-background/95 backdrop-blur-md border border-card-border/50 hover:border-primary/50 hover:bg-primary/10 shadow-lg hover:scale-110 transition-all duration-300"
                       onClick={(e) => e.stopPropagation()}
                       data-testid={`button-github-${project.id}`}
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="h-4 w-4 text-primary" />
                     </a>
                   )}
                   {project.liveUrl && (
@@ -116,26 +120,26 @@ export default function ProjectsSection() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover-elevate"
+                      className="p-2.5 rounded-xl bg-background/95 backdrop-blur-md border border-card-border/50 hover:border-primary/50 hover:bg-primary/10 shadow-lg hover:scale-110 transition-all duration-300"
                       onClick={(e) => e.stopPropagation()}
                       data-testid={`button-live-${project.id}`}
                     >
-                      <ExternalLink className="h-4 w-4" />
+                      <ExternalLink className="h-4 w-4 text-primary" />
                     </a>
                   )}
                 </div>
 
-                {/* Category badge */}
+                {/* Enhanced category badge */}
                 <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="backdrop-blur-sm bg-background/90">
+                  <Badge variant="secondary" className="backdrop-blur-md bg-background/90 border border-card-border/50 shadow-md font-semibold">
                     {project.category === 'ml' ? 'ML/AI' : 'Web Dev'}
                   </Badge>
                 </div>
               </div>
 
-              <CardContent className="p-6 space-y-4">
+              <CardContent className="p-6 space-y-5">
                 <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-testid={`text-project-title-${project.id}`}>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" data-testid={`text-project-title-${project.id}`}>
                     {project.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-project-description-${project.id}`}>
@@ -148,7 +152,7 @@ export default function ProjectsSection() {
                     <Badge
                       key={techIdx}
                       variant="outline"
-                      className="text-xs"
+                      className="text-xs border-card-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
                       data-testid={`badge-tech-${project.id}-${techIdx}`}
                     >
                       {tech}
@@ -161,7 +165,7 @@ export default function ProjectsSection() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="flex-1 gap-2"
+                      className="flex-1 gap-2 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
@@ -174,7 +178,7 @@ export default function ProjectsSection() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="flex-1 gap-2"
+                      className="flex-1 gap-2 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                       asChild
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
