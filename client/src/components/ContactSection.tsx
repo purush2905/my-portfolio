@@ -56,7 +56,7 @@ export default function ContactSection() {
             <span className="text-sm font-semibold text-primary">Contact</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-            Let's Create
+            Let's Get in Touch
             <span className="block bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent"> Together</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -119,95 +119,8 @@ export default function ContactSection() {
               </CardContent>
             </Card>
 
-            <Card className="group relative overflow-hidden border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent shadow-lg hover:shadow-xl">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-[100px] -z-10" />
-              <CardContent className="p-6 relative">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-primary/20">
-                    <MessageSquare className="h-5 w-5 text-primary" />
-                  </div>
-                  <h4 className="font-bold">Quick Response</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  I typically respond within 24 hours. Looking forward to connecting!
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Enhanced Contact form */}
-          <Card className="lg:col-span-3 border-card-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-sm font-semibold">
-                    Your Name
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    required
-                    className="h-12 border-card-border/50 focus:border-primary/50 transition-colors"
-                    data-testid="input-name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-semibold">
-                    Email Address
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    required
-                    className="h-12 border-card-border/50 focus:border-primary/50 transition-colors"
-                    data-testid="input-email"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-sm font-semibold">
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project or idea..."
-                    rows={6}
-                    required
-                    className="border-card-border/50 focus:border-primary/50 transition-colors"
-                    data-testid="input-message"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full gap-2 h-12 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                  disabled={isSubmitting}
-                  data-testid="button-submit"
-                >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          
         </div>
       </div>
     </section>
