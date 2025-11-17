@@ -122,4 +122,6 @@ export default function ContactSection() {
           {/* Enhanced Contact form */}
           
         </div>
+                </div>
+            </section>
   );
